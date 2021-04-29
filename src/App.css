@@ -1,16 +1,120 @@
+html {
+  background-image: url(https://i.pinimg.com/originals/2b/e1/81/2be181ce9a01e62dc83ebb9e0a1eabdc.jpg);
+  background-size: cover;
+}
+
+body {
+  /*background-image: url(https://c1.wallpaperflare.com/preview/75/454/400/gold-wrapping-paper-background-golden.jpg);*/
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
 .App {
   text-align: center;
   padding-top: 16px;
+  min-height: 100vh;
 }
 
-.Client {
+.choice {
+  -webkit-transition: all 400ms;
+  transition: all 400ms;
+  padding: 20px;
+  color: aliceblue;
+  background-color: #504949;
+}
+
+.button_div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: .5vw;
+  background-color: #3f191d;
+  padding: 10px;
+}
+
+.item {
   border: 1px solid black;
-  margin: 16px;
-  padding: 16px;
+  padding: 10px;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 15px;
+  background-color: rgba(63, 25, 29, 0.8);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 400ms;
+  transition: all 400ms;
 }
 
-.Pet {
-  border: 1px solid blue;
-  margin: 16px;
-  padding: 16px;
+h2 {
+  color: aliceblue;
 }
+
+.btnShow {
+  margin-bottom: 15px;
+}
+
+/* .details{
+  border:1px solid black;
+} */
+.table_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 5px;
+}
+
+.left {
+  text-align: left;
+}
+
+.details {
+  background-color: #f3edee;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 1025px) {
+  .items .item {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .button_div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 10;
+  }
+  .button_div .choice {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+}
+/*# sourceMappingURL=App.css.map */

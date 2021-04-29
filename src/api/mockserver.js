@@ -1,67 +1,113 @@
 import { createServer, Model } from 'miragejs';
 
-let data1 = [];
-let data = [
+
+let giftAdatok = [
+
   {
-   "id" : 1,
-   "name" : "DeviceToLovePopó",
-   "status" : "working",
-   "batteryDto": {
-    "id" : 1,
-    "name" : "battery1",
-    "voltage" : 3.7,
-    "colorcode" : "#008000"
-  }
+      name         : 'WV Bogar car',
+      cost         : '30 000 000 Ft',
+      fragile      : false,
+      mass         : '1.500 kg',
+      packed       : true,
+      ageLimit     : 'adult',
+      deliveryDate : '2021.03.11T13:00',
+  },
+  
+  {
+      name         : 'Vodka 0.5l',
+      cost         : '3 000 Ft',
+      fragile      : true,
+      mass         : '0.5 kg',
+      packed       : false,
+      ageLimit     : 'adult',
+      deliveryDate : '2021.03.01T15:00',
   },
   {
-    "id" : 2,
-   "name" : "Device2",
-   "status" : "working",
-   "batteryDto": {
-     "id" : 1,
-     "name" : "battery2",
-     "voltage" : 3.6,
-     "colorcode" : "#FF0000"
-   }
-},
-{
-    "id" : 3,
-   "name" : "Device3",
-   "status" : "Not Responding",
-   "batteryDto": {
-     "id" : 1,
-     "name" : "battery2",
-     "voltage" : null,
-     "colorcode" : "#FF8000"
-   }
-}
-]
+      name         : 'Board Game',
+      cost         : '3 000 Ft',
+      fragile      : true,
+      mass         : '0.5 kg',
+      packed       : false,
+      ageLimit     : 'child',
+      deliveryDate : '2021.05.14T12:30',
+  },
+  {
+      name         : 'Gift card',
+      cost         : '5 000 Ft',
+      fragile      : false,
+      mass         : '0.05 kg',
+      packed       : true,
+      ageLimit     : 'adult',
+      deliveryDate : '2021.03.03T10:00',
+  
+  },
+  
+  {
+      name         : 'Dummy',
+      cost         : '2500 Ft',
+      fragile      : true,
+      mass         : '0.25 kg',
+      packed       : true,
+      ageLimit     : 'baby',
+      deliveryDate : '2021.03.09T09:30',
+  
+  },
+  {
+      name         : 'Plant',
+      cost         : '4500 Ft',
+      fragile      : true,
+      mass         : '1 kg',
+      packed       : false,
+      ageLimit     : 'adult',
+      deliveryDate : '2021.05.15T17:00',
+  
+  },
+  {
+      name         : 'Harry Potter',
+      cost         : '1500 Ft',
+      fragile      : false,
+      mass         : '0.5 kg',
+      packed       : true,
+      ageLimit     : 'child',
+      deliveryDate : '2021.05.27T07:45',
+  
+  },
+  {
+      name         : 'Fireman Sam',
+      cost         : '1500 Ft',
+      fragile      : false,
+      mass         : '0.5 kg',
+      packed       : true,
+      ageLimit     : 'baby',
+      deliveryDate : '2021.05.27T07:45'
+  
+  }
+  ,
+  {
+      name         : 'Nappy',
+      cost         : '500 Ft',
+      fragile      : false,
+      mass         : '0.5 kg',
+      packed       : true,
+      ageLimit     : 'baby',
+      deliveryDate : '2021.05.27T07:45'
+  
+  }
+  ]
+
+ 
 
 export function makeServer({ environment = 'test' } = {}) {
   let server = createServer({
     environment,
-    models: {
-      client: Model,
-    },
     seeds(server) { },
     routes() {
       this.namespace = '/api';
-      this.timing = 2000
+      this.timing = 3000
 
-      this.get('/deviceOverView/page', (schema, request) => {
-        const search = request.queryParams.search
-       // return data.filter(client => client.name.includes(search))
-       return data;
-      });
-
-      this.post('/pets', (schema, request) => {
-        let { name, isVaccinated } = JSON.parse(request.requestBody);
-        data.forEach(c => {
-          c.pets.forEach(p => {
-            if (p.name === name) p.isVaccinated = isVaccinated
-          })
-        })
-        return { success: true }
+      this.get('gifts', (schema, request) => {
+       
+          return (giftAdatok);
       });
     },
   });
